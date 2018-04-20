@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/dialog_comment_et"
+        android:layout_width="match_parent"
+        android:layout_height="105dp"
+        android:background="@drawable/comment_dialog_et_selector"
+        android:layout_margin="12dp"
+        android:hint="请输入评论内容..."
+        android:textSize="14sp"
+        android:gravity="left|top"
+        android:paddingLeft="15dp"
+        android:paddingTop="12dp"
+        android:textColorHint="#929292"
+        android:textColor="#808080"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/dialog_comment_bt"
+            android:layout_width="72dp"
+            android:layout_height="32dp"
+            android:background="#D8D8D8"
+            android:layout_marginBottom="14dp"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:layout_marginTop="6dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="12dp"
+            android:text="发布"/>
+    </RelativeLayout>
+
+</LinearLayout>

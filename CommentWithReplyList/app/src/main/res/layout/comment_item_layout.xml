@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/comment_item_logo"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/user_logo"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="6dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="6dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/comment_item_userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#5B595A"
+                android:textSize="14sp"
+                android:text="沐风" />
+            <TextView
+                android:id="@+id/comment_item_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1小时前"
+                android:textSize="12sp"
+                android:layout_marginTop="3dp"
+                android:textColor="#989898"/>
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/comment_item_like"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:theme="?android:selectableItemBackgroundBorderless"
+            android:src="@drawable/icon_comment_like"
+            android:layout_margin="10dp"
+            android:padding="8dp"/>
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/comment_item_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:textColor="#484848"
+        android:textSize="14sp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginRight="24dp"
+        android:text="从前有座山，山里有座庙，庙里有个老和尚"/>
+
+
+</LinearLayout>

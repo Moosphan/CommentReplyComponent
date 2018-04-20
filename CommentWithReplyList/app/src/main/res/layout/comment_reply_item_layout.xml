@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_marginTop="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="32dp"
+        android:orientation="horizontal"
+        android:background="#F6F6F6">
+        <TextView
+            android:id="@+id/reply_item_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="沐风:"
+            android:textSize="14sp"
+            android:textColor="#626262"/>
+        <TextView
+            android:id="@+id/reply_item_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="4dp"
+            android:paddingRight="8dp"
+            android:maxLines="10"
+            android:ellipsize="end"
+            android:textColor="#949494"
+            android:textSize="14sp"
+            android:text="世上本没有路，走的人多了，也就成了路"/>
+    </LinearLayout>
+
+</LinearLayout>

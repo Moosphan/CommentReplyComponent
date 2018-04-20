@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.moos.example.MainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="详情"
+        android:elevation="2dp"
+        android:background="@android:color/white"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+    <ImageView
+        android:id="@+id/detail_page_image"
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/teaser"/>
+    <android.support.v4.widget.NestedScrollView
+        android:layout_below="@+id/detail_page_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:id="@+id/detail_page_above_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center_vertical">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/detail_page_userLogo"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/user_logo"
+                        android:layout_marginLeft="16dp"
+                        app:civ_border_width="1dp"
+                        app:civ_border_color="@android:color/white"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="6dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/detail_page_userName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#5B595A"
+                            android:textSize="14sp"
+                            android:text="沐风" />
+                        <TextView
+                            android:id="@+id/detail_page_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1小时前"
+                            android:textSize="12sp"
+                            android:layout_marginTop="3dp"
+                            android:textColor="#989898"/>
+                    </LinearLayout>
+                    <ImageView
+                        android:id="@+id/detail_page_focus"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/icon_focus"
+                        android:layout_margin="12dp"
+                        android:padding="6dp"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/detail_page_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="诗和远方"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="6dp"
+                    android:textSize="18sp"
+                    android:textColor="#363636"/>
+                <TextView
+                    android:id="@+id/detail_page_story"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:text="水光潋滟晴方好，山色空蒙雨亦奇。\n欲把西湖比西子，淡抹浓妆总相宜。"
+                    android:maxLines="10"
+                    android:ellipsize="end"
+                    android:layout_marginRight="10dp"
+                    android:textSize="14sp"
+                    android:textColor="#6e6e6e"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:background="#e6e6e6"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/detail_page_comment_container"
+                android:layout_below="@+id/detail_page_above_container"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.moos.example.view.CommentExpandableListView
+                    android:id="@+id/detail_page_lv_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@null"
+                    android:layout_marginBottom="64dp"
+                    android:listSelector="@android:color/transparent"
+                    android:scrollbars="none"/>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        android:elevation="2dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <TextView
+            android:id="@+id/detail_page_do_comment"
+            android:layout_width="0dp"
+            android:layout_height="34dp"
+            android:layout_weight="1"
+            android:textColor="#B6B6B6"
+            android:textSize="12sp"
+            android:text="说点什么吧..."
+            android:background="@drawable/comment_bt_selector"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="22dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="18dp"/>
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/icon_collect"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#9A9A9A"
+            android:textSize="14sp"
+            android:layout_marginLeft="10dp"
+            android:text="32"/>
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/icon_work_like"
+            android:layout_marginLeft="20dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#9A9A9A"
+            android:textSize="14sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="14dp"
+            android:text="66"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
