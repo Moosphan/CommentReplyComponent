@@ -53,6 +53,7 @@
         android:id="@+id/comment_item_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginTop="6dp"
         android:textColor="#484848"
         android:textSize="14sp"

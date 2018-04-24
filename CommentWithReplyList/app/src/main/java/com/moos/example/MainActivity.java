@@ -1,16 +1,21 @@
 package com.moos.example;
 
 import android.graphics.Color;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialog;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
@@ -95,6 +100,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Window window = getWindow();
+        WindowManager.LayoutParams params = window.getAttributes();
+        window.setSoftInputMode(params.SOFT_INPUT_ADJUST_RESIZE);
         setContentView(R.layout.activity_main);
         initView();
     }
@@ -106,7 +114,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bt_comment.setOnClickListener(this);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        CollapsingToolbarLayout collapsingToolbar =
+                (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        collapsingToolbar.setTitle("详情");
         commentsList = generateTestData();
         initExpandableListView(commentsList);
     }
@@ -194,7 +204,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         final EditText commentText = (EditText) commentView.findViewById(R.id.dialog_comment_et);
         final Button bt_comment = (Button) commentView.findViewById(R.id.dialog_comment_bt);
         dialog.setContentView(commentView);
+        /**
+         * 解决bsd显示不全的情况
+         */
+        View parent = (View) commentView.getParent();
+        BottomSheetBehavior behavior = BottomSheetBehavior.from(parent);
+        commentView.measure(0,0);
+        behavior.setPeekHeight(commentView.getMeasuredHeight());
+
         bt_comment.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 String commentContent = commentText.getText().toString().trim();
@@ -202,7 +221,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     //commentOnWork(commentContent);
                     dialog.dismiss();
-                    CommentDetailBean detailBean = new CommentDetailBean("小明","http://ucardstorevideo.b0.upaiyun.com/userLogo/9fa13ec6-dddd-46cb-9df0-4bbb32d83fc1.png","人生若只如初见～","刚刚");
+                    CommentDetailBean detailBean = new CommentDetailBean("小明","http://ucardstorevideo.b0.upaiyun.com/userLogo/9fa13ec6-dddd-46cb-9df0-4bbb32d83fc1.png",commentContent,"刚刚");
                     adapter.addTheCommentData(detailBean);
 
                 }else {
@@ -247,11 +266,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bt_comment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String commentContent = commentText.getText().toString().trim();
-                if(!TextUtils.isEmpty(commentContent)){
+                String replyContent = commentText.getText().toString().trim();
+                if(!TextUtils.isEmpty(replyContent)){
 
                     dialog.dismiss();
-                    ReplyDetailBean detailBean = new ReplyDetailBean("小红","何事秋风悲画扇");
+                    ReplyDetailBean detailBean = new ReplyDetailBean("小红",replyContent);
                     adapter.addTheReplyData(detailBean, position);
                 }else {
                     Toast.makeText(MainActivity.this,"回复内容不能为空",Toast.LENGTH_SHORT).show();
