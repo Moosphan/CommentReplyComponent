@@ -223,6 +223,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     dialog.dismiss();
                     CommentDetailBean detailBean = new CommentDetailBean("小明","http://ucardstorevideo.b0.upaiyun.com/userLogo/9fa13ec6-dddd-46cb-9df0-4bbb32d83fc1.png",commentContent,"刚刚");
                     adapter.addTheCommentData(detailBean);
+                    Toast.makeText(MainActivity.this,"评论成功",Toast.LENGTH_SHORT).show();
 
                 }else {
                     Toast.makeText(MainActivity.this,"评论内容不能为空",Toast.LENGTH_SHORT).show();
@@ -272,6 +273,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     dialog.dismiss();
                     ReplyDetailBean detailBean = new ReplyDetailBean("小红",replyContent);
                     adapter.addTheReplyData(detailBean, position);
+                    Toast.makeText(MainActivity.this,"回复成功",Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(MainActivity.this,"回复内容不能为空",Toast.LENGTH_SHORT).show();
                 }
