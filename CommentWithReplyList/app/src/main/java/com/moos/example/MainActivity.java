@@ -100,9 +100,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Window window = getWindow();
-        WindowManager.LayoutParams params = window.getAttributes();
-        window.setSoftInputMode(params.SOFT_INPUT_ADJUST_RESIZE);
         setContentView(R.layout.activity_main);
         initView();
     }
@@ -195,7 +192,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     /**
-     * by moos on 2018/04/08
+     * by moos on 2018/04/20
      * func:弹出评论框
      */
     private void showCommentDialog(){
@@ -221,7 +218,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     //commentOnWork(commentContent);
                     dialog.dismiss();
-                    CommentDetailBean detailBean = new CommentDetailBean("小明","http://ucardstorevideo.b0.upaiyun.com/userLogo/9fa13ec6-dddd-46cb-9df0-4bbb32d83fc1.png",commentContent,"刚刚");
+                    CommentDetailBean detailBean = new CommentDetailBean("小明", commentContent,"刚刚");
                     adapter.addTheCommentData(detailBean);
                     Toast.makeText(MainActivity.this,"评论成功",Toast.LENGTH_SHORT).show();
 
@@ -273,6 +270,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     dialog.dismiss();
                     ReplyDetailBean detailBean = new ReplyDetailBean("小红",replyContent);
                     adapter.addTheReplyData(detailBean, position);
+                    expandableListView.expandGroup(position);
                     Toast.makeText(MainActivity.this,"回复成功",Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(MainActivity.this,"回复内容不能为空",Toast.LENGTH_SHORT).show();

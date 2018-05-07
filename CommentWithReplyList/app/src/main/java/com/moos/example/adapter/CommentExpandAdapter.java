@@ -119,14 +119,12 @@ public class CommentExpandAdapter extends BaseExpandableListAdapter {
                 }
             }
         });
-        //int replyCount = commentBeanList.get(groupPosition).getReplyList()==null?0:commentBeanList.get(groupPosition).getReplyList().size();
 
         return convertView;
     }
 
     @Override
     public View getChildView(final int groupPosition, int childPosition, boolean b, View convertView, ViewGroup viewGroup) {
-        //Log.e(TAG, "getChildView: "+"加载展开子项的布局" );
         final ChildHolder childHolder;
         if(convertView == null){
             convertView = LayoutInflater.from(context).inflate(R.layout.comment_reply_item_layout,viewGroup, false);
@@ -174,7 +172,6 @@ public class CommentExpandAdapter extends BaseExpandableListAdapter {
             tv_content = (TextView) view.findViewById(R.id.reply_item_content);
         }
     }
-    BottomSheetDialog dialog;
 
 
     /**
@@ -184,7 +181,6 @@ public class CommentExpandAdapter extends BaseExpandableListAdapter {
      */
     public void addTheCommentData(CommentDetailBean commentDetailBean){
         if(commentDetailBean!=null){
-            Log.e(TAG, "addTheCommentData: >>>>该刷新评论列表了" );
 
             commentBeanList.add(commentDetailBean);
             notifyDataSetChanged();
@@ -203,14 +199,12 @@ public class CommentExpandAdapter extends BaseExpandableListAdapter {
         if(replyDetailBean!=null){
             Log.e(TAG, "addTheReplyData: >>>>该刷新回复列表了:"+replyDetailBean.toString() );
             if(commentBeanList.get(groupPosition).getReplyList() != null ){
-                Log.e(TAG, "addTheReplyData: >>>>>replyList不为空" );
                 commentBeanList.get(groupPosition).getReplyList().add(replyDetailBean);
             }else {
                 List<ReplyDetailBean> replyList = new ArrayList<>();
                 replyList.add(replyDetailBean);
                 commentBeanList.get(groupPosition).setReplyList(replyList);
             }
-
             notifyDataSetChanged();
         }else {
             throw new IllegalArgumentException("回复数据为空!");

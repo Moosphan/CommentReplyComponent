@@ -9,8 +9,8 @@ import android.widget.ExpandableListView;
 /**
  * Author: Moos
  * E-mail: moosphon@gmail.com
- * Date:  18/4/18.
- * Desc: 自定义ExpandableListView,解决与NestedScrollview滑动冲突问题
+ * Date:  18/4/20.
+ * Desc: 自定义ExpandableListView,解决与CoordinatorLayout滑动冲突问题
  */
 
 public class CommentExpandableListView extends ExpandableListView implements NestedScrollingChild{
