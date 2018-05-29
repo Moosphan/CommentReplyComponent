@@ -157,11 +157,11 @@ public class CommentExpandAdapter extends BaseExpandableListAdapter {
         private TextView tv_name, tv_content, tv_time;
         private ImageView iv_like;
         public GroupHolder(View view) {
-            logo =  view.findViewById(R.id.comment_item_logo);
-            tv_content = view.findViewById(R.id.comment_item_content);
-            tv_name = view.findViewById(R.id.comment_item_userName);
-            tv_time = view.findViewById(R.id.comment_item_time);
-            iv_like = view.findViewById(R.id.comment_item_like);
+            logo = (CircleImageView) view.findViewById(R.id.comment_item_logo);
+            tv_content = (TextView) view.findViewById(R.id.comment_item_content);
+            tv_name = (TextView) view.findViewById(R.id.comment_item_userName);
+            tv_time = (TextView) view.findViewById(R.id.comment_item_time);
+            iv_like = (ImageView) view.findViewById(R.id.comment_item_like);
         }
     }
 

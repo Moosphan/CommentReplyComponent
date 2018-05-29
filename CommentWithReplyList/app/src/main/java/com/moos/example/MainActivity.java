@@ -6,6 +6,7 @@ import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -105,9 +106,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initView() {
-        toolbar = findViewById(R.id.toolbar);
-        expandableListView = findViewById(R.id.detail_page_lv_comment);
-        bt_comment = findViewById(R.id.detail_page_do_comment);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        expandableListView = (CommentExpandableListView) findViewById(R.id.detail_page_lv_comment);
+        bt_comment = (TextView) findViewById(R.id.detail_page_do_comment);
         bt_comment.setOnClickListener(this);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
